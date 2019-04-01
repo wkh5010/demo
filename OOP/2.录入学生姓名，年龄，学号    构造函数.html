@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+	// 录入学生姓名，年龄，学号 遇到exit停止，输出学生姓名，年龄，学号
+
+	var arr=getDate();
+
+
+	showDate(arr);//输出数据
+	 
+		 function getDate(){
+		 	var arr=[];
+			 while(true){
+			 	var res=prompt('是否结束录入，输入exit：')
+			 	if(res=='exit'){
+		 		   break;
+			 	}
+			 // var stu=new Object;
+			 var name=prompt("请输入学生姓名：");
+			 var age=prompt("请输入学生年龄：");
+			 var id=prompt("请输入学生学号：");
+			 var stu=new student(name,age,id);//创建对象
+			 // console.log(stu.name);
+			 //保存对象
+			 arr.push(stu);
+			}
+			return arr;
+	    }
+
+ 		
+
+		// 输出数据
+		function showDate(arr){
+			arr.forEach(function(item){
+	 				console.log(item.name,item.age,item.id);
+			});
+		}
+
+		//构造函数
+		function student(name,age,id){
+			this.name=name;
+			this.age=age;
+			this.id=id;
+		}
+	</script>
+	
+	
+</body>
+</html>

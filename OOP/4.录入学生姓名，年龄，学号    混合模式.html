@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		/*
+			录入班级学生(姓名、年龄、学号)，输出所有学生的学号、姓名和年龄
+		*/
+
+		var s1=new Register();
+		s1.loadInfo();
+		s1.showInfo();
+		//构造函数
+		//注册
+		function  Register(){
+			this.arr=[];//属性；
+			//录入数据
+			this.loadInfo=function(){
+				while(confirm('是否继续录入学生成绩？')){
+					var  name=prompt('姓名：');
+					var  age=prompt('年龄：');
+					var  id=prompt('学号：');
+					var stu=new Student(name,age,age);
+
+					//创建学生对象
+					//保存学生对象
+					this.arr.push(stu);
+
+				}
+			};
+			//输出数据
+			this.showInfo=function(){
+				this.arr.forEach(function(item){
+                   console.log(item.name,item.age,item.id);
+				});
+			}
+		}
+		//创建学生
+		function  Student(name,age,id){
+              this.name=name;
+              this.age=age;
+              this.id=id;
+              this.test=function(){
+				console.log(this.name+' 在考试....');
+			};
+		}
+
+
+
+
+
+
+/*
+		/*
+			录入班级学生(姓名、年龄、学号)，输出所有学生的学号、姓名和年龄
+		*/		
+
+		//构造函数
+		//注册
+		function Register(stus){
+			this.arr=[];//属性	保存学生
+			this.loadInfo(stus);		
+		}
+
+		//在原型上完成方法添加
+		//输出数据
+		Register.prototype.showInfo=function(){
+			this.arr.forEach(function(item){
+				console.log(item.name,item.age,item.no);
+			});
+		};
+
+		//录入数据
+		Register.prototype.loadInfo=function(stus){
+			for(var i in stus){
+				this.arr.push(stus[i]);
+			}			
+		};
+
+		//创建学生
+		function Student(no,name,age){
+			this.no=no;
+			this.name=name;
+			this.age=age;
+
+			this.test=function(){
+				console.log(this.name+' 在考试....');
+			};
+		}
+	
+
+		var arr0=[];
+		while(confirm('是否继续录入学生信息？')){										
+			var name=prompt('请输入姓名：');
+			var age=prompt('请输入年龄：');
+			var no=prompt('请输入学号：');
+			var stu=new Student(no,name,age);//创建学生对象		
+			arr0.push(stu);							
+		}
+		//完成注册
+		var reg=new Register(arr0);//创建对象实例	
+		reg.showInfo();	
+		
+
+		//MVC       */
+
+	</script>
+	
+</body>
+</html>
+	
+</body>
+</html>

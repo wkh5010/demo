@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		table{width: 500px;border: 1px solid gray;border-collapse: collapse;}
+		th,td{line-height: 30px;text-align: center;border: 1px solid gray;}
+	</style>
+</head>
+<body>
+	<label for="">用户名：&nbsp;&nbsp;&nbsp;</label><input type="text"><br>
+	<label for="">密码&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ：</label><input type="password"><br>
+	<label for="">重复密码：</label><input type="password"><br>
+	<label for="">电话&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;：</label><input type="text"><br>
+	<a href="javascript:void(0)"><button>注册</button></a>
+	<button>显示</button><br>
+
+	<table>
+		<thead>
+			<tr>
+				<th>用户名</th>
+				<th>密码</th>
+				<th>电话</th>
+				<th>操作</th>
+			</tr>
+	    </thead>
+		<tbody></tbody>
+	</table>
+
+	<script type="text/javascript">
+		//1.点击 注册  录入数据
+		var btn=document.querySelectorAll('button');
+		var ipt=document.querySelectorAll('input');
+		// var tb=document.querySelectorAll('tbody');
+		var tb=document.querySelector('tbody');
+		var arr;
+		var arr0;
+		var key='ps';//本地保存数据的key值；
+
+         
+        //录入数据
+		btn[0].onclick=function () {
+			//获取输入框的值
+			var p=new Person(ipt[0].value,ipt[1].value,ipt[2].value);
+			//从本地获取数据
+			var s=getDate(key);
+			if (s!=null) {
+				//证明本地有数据
+				arr=JSON.parse(s);//将本地数据转换为数组；
+			}else{
+				//本地无数据；
+				arr=[];
+			};
+			arr.push(p);//将注册用户数据存储在数组arr中；
+			setDate(key,arr);//将数据保存在本地
+		};
+
+			//显示数据
+			btn[1].onclick=function(){
+				// clearTbody();
+				showDate();
+			};
+		
+		//2.点击 显示  显示所有数据
+		//3.点击 删除  删除数据
+
+         //将人员数据显示在表格中
+         function  showDate(){
+         	arr0=JSON.parse(getDate(key));//取出本地数据
+         	if(arr0==null) {
+         		return;  //本地无数据，不显示
+         	}
+         	arr0.forEach(function(item,index){
+         		//创建一行
+         	var tr=getTr(item.username,item.pwd,item.tel);
+         		//将行插入表格
+         		tb.appendChild(tr);
+          	});
+           
+         }
+
+       
+
+
+		//创建行，插入数据
+		function  getTr(username,pwd,tel){
+			var tr=document.createElement('tr');//创建行
+			//行内添加列
+			tr.insertCell().innerHTML=username;
+			tr.insertCell().innerHTML=pwd;
+			tr.insertCell().innerHTML=tel;
+			var td=tr.insertCell();
+			//最后一列；
+  
+             tr.appendChild(td);
+			return tr;
+
+		}
+
+
+
+		//存储数据
+		function  setDate(key,value){
+			value=JSON.stringify(value);//将value值换成字符串
+			localStorage.setItem(key,value);
+		}
+
+		//数据获取
+		function  getDate(key){
+			 return  localStorage.getItem(key);
+		}
+
+		//构造函数
+		function  Person(username,pwd,tel){
+			this.username=username;
+			this.pwd=pwd;
+			this.tel=tel;
+		}
+	</script>
+</body>
+</html>

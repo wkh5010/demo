@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>world</title>
+	<script type="text/javascript">
+		// 1. 把一个字符串转化为驼峰写法（例如：margin-left=>marginLeft）
+		  /* var soc='margin-left';
+		   var sdc=soc.replace('-','');
+		   console.log(sdc);      //L  76   l  108   //32*/
+
+		// 2. 查找字符串出现最多的字符和个数
+         var scc='akdskjkjdflkjsldfskdskdkfksdketertet';
+           
+		function demo1(str){
+			//1.将字符串转换为数组
+			var arr=str.split('');
+			//2.排序
+			arr.sort();
+			//3.转为字符串
+			str=arr.join('');
+			//4.遍历字符串
+			var temp=str[0];//
+			var count=1;//计数器
+			var arr0=[];//空数组，保存字符和对应的个数
+			for(var i=1;i<str.length;i++){			
+				//重复字符
+				if(temp==str[i]){					
+					count++;
+				}else{
+					//不重复字符,该字符统计结束
+					var arrs=[];//创建新数组
+					arrs.push(temp);//字符
+					arrs.push(count);//个数
+					arr0.push(arrs);//将字符和重复次数(数组)保存起来
+					temp=str[i];//修改中间变量
+					count=1;//修改计数器
+				}
+			}
+			//将最后一个字符数组存入
+			arrs1=[];
+			arrs1.push(temp,count);
+			arr0.push(arrs1);
+			// console.log(arr0);
+			return arr0;
+		}
+
+		var ar=demo1(str);
+		var max=ar[0][1];//假设第一个字符的个数最多
+		var t=ar[0][0];//个数最多的字符
+		//遍历数组
+		ar.forEach(function(item){
+			console.log(item);
+			// console.log(item[1]);
+			if(max<item[1]){
+				max=item[1];
+				t=item[0];
+			}
+		});
+		console.log(t,max);
+
+
+		//[['2',1],['a',5],['b',7]]
+
+        // 统计字符串中各字符在字符串中出现的数量
+		// var arr3=[['2',1],['a',5],['b',7]];//  arr3[1][1]
+		// arr3.forEach(function(item){
+		// 	console.log(item[1]);
+		// });
+	
+
+
+		// 3.返回一个只包含数字类型的数组（例如：afjasoeigjs123sgdhedhhe456osddhnofd789=>[123,456,789]）
+
+
+
+
+		// 4.去掉字符串中的空格
+		/*var src='sfs_d_mkl_fn_jsd_jl_sk_hf_lks';
+		while(src.indexOf('_')!=-1){
+			src=src.replace('_',' ');
+		}
+		console.log(src);
+*/
+
+		// 5.字符串首字母改大写
+		/*var a='abcdefg';
+		var a1=a.replace('a','A');
+		console.log(a1);*/
+
+
+		// 6.去字符串头尾空格
+		/*function drt(){
+		var str=' _hig_klmn_ ';
+		var s=str.trim();
+		console.log(s);
+         }
+         drt();*/
+
+		// 7.删除字符串中所有的数字
+		/*function  vgb(){
+		var cvg='sj7lkih34qu9pq34ueof0ig7so';
+		var s='';
+		   for(i=0;i<cvg.length;i++){
+                if(!(cvg[i]>='0'&&cvg[i]<='9')){
+                  s+=cvg[i];    
+                }
+		   }console.log(s);
+
+        }
+         vgb();*/
+
+       
+		// 8.反转字符串
+		/*function gov(){
+		var gvb='kjahfdgfagytfasdgj';
+		var jk='';
+         for(i=gvb.length-1;i>=0;i--){
+         	jk+=gvb[i];
+         }console.log(jk);
+        }
+         gov();*/
+		// 9.统计字符串中各字符在字符串中出现的数量	
+
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

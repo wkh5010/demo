@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<img src="images/1.png" alt="" id="box">
+	<script type="text/javascript">
+		var attr={
+			src:'images/2.png',
+			alt:'提示信息',
+			title:'标题'
+		};
+
+
+
+		var o=document.querySelector('#box');
+		// console.log(o);
+
+		//设置节点属性
+		function setAttr(obj,attr) {
+			for(var i in attr){
+				obj[i]=attr[i];
+			}
+		}
+		 setAttr(o,attr);
+	</script>
+</body>
+</html>

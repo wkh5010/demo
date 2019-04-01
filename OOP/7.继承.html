@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function People(name,age){
+			this.name=name;
+			this.age=age;
+		}
+
+        // 方法   说话
+
+        People.prototype.say=function(){
+        	console.log(this.name+'在说话');
+        };
+        //打印信息
+        People.prototype.showInfo=function(){
+        	console.log('姓名：'+this.name+'年龄：'+this.age);
+        }
+        
+        var p=new People('李四',22);
+
+
+		//构造函数  学生
+		function Student(name,age,no,grade){
+            this.name=name;
+            this.grade=grade;
+
+		}
+	</script>
+	
+</body>
+</html>

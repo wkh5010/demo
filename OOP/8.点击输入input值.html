@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		table{width: 500px;border: 1px solid gray;border-collapse: collapse;}
+		th,td{line-height: 30px;text-align: center;border: 1px solid gray;}
+	</style>
+</head>
+<body>
+	<label for="">用户名：</label><input type="text"><br>
+	<label for="">密码：</label><input type="password"><br>
+	<label for="">重复密码：</label><input type="password"><br>
+	<label for="">电话：</label><input type="text"><br>
+	<a href="javascript:void(0)"><button>注册</button></a>
+	<button>显示</button><br>
+
+	<table>
+		<tr>
+			<th>用户名</th>
+			<th>密码</th>
+			<th>电话</th>
+			<th>操作</th>
+		</tr>
+		<tr>
+			<td>Jack</td>
+			<td>123456</td>
+			<td>16890890987</td>
+			<td><a href="#">删除</a></td>
+		</tr>
+	</table>
+
+	<script type="text/javascript">
+		var ips=document.querySelectorAll('input');
+		document.querySelector('button').onclick=function() {
+			var name=ips[0].value;
+			var pwd=ips[1].value;
+			var tel=ips[3].value;
+
+			//创建一个人对象
+			var p1=new Person(name,pwd,tel);//对象
+			//{name:'jack',age:22,addr:'瑞达路'}
+			//‘{name:'jack',age:22,addr:'瑞达路'}’
+			var strP1=JSON.stringify(p1);//将对象转换为字符串
+			// console.log(p1,typeof p1);
+			// console.log(strP1,typeof strP1);
+
+			//存储
+			localStorage.setItem('p2',strP1);
+
+			//将对象转换为字符串
+			// localStorage.setItem('uName',name);
+			// localStorage.setItem('ps',pwd);
+			// localStorage.setItem('phone',tel);
+		};
+
+
+		//构造函数
+		function Person(name,pwd,tel){
+			this.name=name;
+			this.pwd=pwd;
+			this.tel=tel;
+		}
+	</script>
+</body>
+</html>

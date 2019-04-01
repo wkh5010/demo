@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        // window.number = 'one';
+        // document.number = 'two';
+
+        // var s1 = {number: 'three' };
+        // function changeColor(){
+        //     console.log(this.number);
+        // }
+
+        // changeColor.apply();         //one (默认传参)
+        // changeColor.apply(window);   //one
+        // changeColor.apply(document); //two
+        // changeColor.apply(this);     //one
+        // changeColor.apply(s1);       //three
+
+
+
+    
+        //this   默认 window对象    在对象内或者new的时候，this指当前对象
+        //call 和apply可以改变this的值
+
+
+        function add(a,b) {
+         // console.log(this);
+         return a+b;
+        }
+
+        function sub(a,b){
+         // console.log(this);
+         return a-b;
+        }
+
+        // var m1=add(10,8);
+        // var m=add.call(sub,10,8);//18
+
+        // var m=add.apply(sub,[10,8]);//执行add方法
+
+
+        var m=sub.call(add,10,8);
+        // var m=sub.apply(add,[10,8]);
+
+        // console.log(m1);
+        console.log(m);
+
+
+
+        // var fru={
+        //  color:'pink',
+        //  say:function(){
+        //      console.log(' my color is '+this.color);
+        //  }
+        // };
+
+        // // fru.say();
+
+        // var app={color:'red'};
+
+        // fru.say.call(app);
+
+
+
+        /*var arr=[1,2,3];
+        var arr0=[4,5,6];
+
+        //push
+        Array.prototype.push.apply(arr,arr0);
+
+        console.log(arr);*/
+
+
+        //求最大值
+
+        //求参数中的最大值
+        // (function getMax(){
+        //  //arguments   Math.max
+        //  var m=Math.max.apply(null,arguments);
+        //  console.log(m);
+        // })(100,200,8,600,900);
+
+
+        // function Person(){
+        //  this.say=function(){
+        //      console.log('哈哈');
+        //  }
+        // }
+
+        // new Person().say();
+
+        // var arr=[200,90];
+        // Array.push.apply(arr,[10,20]);//error
+        // console.log(arr);
+
+
+        // (function show(){
+        //     Array.prototype.push.call(arguments,100);
+        //     console.log(arguments);//类数组
+        // })(5,3,1,10);
+
+        
+    </script>
+</body>
+</html>

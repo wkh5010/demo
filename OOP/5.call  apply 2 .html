@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+			/*1.创建电脑对象，电脑对象有关机和开机方法
+            2.创建三个学生对象，并且输出学生的学号、姓名、年级和年龄
+            3.创建一个水果对象，输出水果的种类，颜色，重量*/
+
+            		//1
+           var Computer={
+           		name:'关机',
+           	   close:function(){	
+           	   	console.log(this.name);
+           	   }           	   
+            }
+
+            var cop1={
+            	name:'开机',
+            	happen:function(){ 		
+           	   	console.log(this.name);
+           	   }
+            }
+
+            Computer.close();
+            Computer.close.call(cop1);
+
+            	
+            	//3
+            var fruit={
+            	lei:'eating',
+            	color:'red',
+            	weight:'35g',
+            	say:function(){
+            		console.log(this.lei,this.color,this.weight)
+            	}
+            	
+            }
+            fruit.say();
+
+            
+
+
+	</script>
+	
+</body>
+</html>
