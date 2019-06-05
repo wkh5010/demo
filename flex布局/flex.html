@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>flex布局</title>
+	<style type="text/css">
+		*{margin:0;padding:0;}
+		.box{height: 600px;border:1px solid #f00;display: flex;}
+		.box div{width: 400px;border:1px solid #ccc;  flex-grow:1;  flex-wrap: wrap;}
+		.box div:nth-child(1){width: 200px;height: 100px;  order:2;  flex-grow: 2;}
+		.box div:nth-child(2){width: 250px;height: 200px;  order:-1;}
+		.box div:nth-child(3){width: 160px;height: 150px;}
+		
+	</style>
+</head>
+<body>
+	<div class="box">
+	  <div>AAAA</div>
+      <div>BBBB</div>
+      <div>CCCC</div>
+      <div>DDDD</div>
+</div>
+
+</body>
+</html>
